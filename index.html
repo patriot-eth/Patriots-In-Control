@@ -134,11 +134,23 @@
             cursor: pointer;
             margin-top: 20px;
         }
+        #copiedMessage {
+            display: none;
+            font-size: 1rem;
+            color: #00FF00; /* Green */
+            margin-top: 10px;
+        }
     </style>
     <script>
         function copyToClipboard() {
             var address = document.getElementById("contractAddress").innerText;
-            navigator.clipboard.writeText(address);
+            navigator.clipboard.writeText(address).then(function() {
+                var copiedMessage = document.getElementById("copiedMessage");
+                copiedMessage.style.display = "block";
+                setTimeout(function() {
+                    copiedMessage.style.display = "none";
+                }, 2000);
+            });
         }
     </script>
 </head>
@@ -159,6 +171,7 @@
         <div class="footer">
             <p>*** DEPLOYED ON ETHEREUM ***</p>
             <p id="contractAddress" class="contract-address" onclick="copyToClipboard()">Official Contract Address: 0x0000000000000000000000000000000000000000</p>
+            <p id="copiedMessage">Copied!</p>
         </div>
     </div>
     <div class="retro-element top-left">

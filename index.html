@@ -143,7 +143,7 @@
     </style>
     <script>
         function copyToClipboard() {
-            var address = document.getElementById("contractAddress").innerText;
+            var address = document.getElementById("contractOnly").innerText;
             navigator.clipboard.writeText(address).then(function() {
                 var copiedMessage = document.getElementById("copiedMessage");
                 copiedMessage.style.display = "block";
@@ -170,7 +170,7 @@
         </div>
         <div class="footer">
             <p>*** DEPLOYED ON ETHEREUM ***</p>
-            <p id="contractAddress" class="contract-address" onclick="copyToClipboard()">Official Contract Address: 0x0000000000000000000000000000000000000000</p>
+            <p id="contractAddress" class="contract-address" onclick="copyToClipboard()">Official Contract Address: <span id="contractOnly">0x0000000000000000000000000000000000000000</span></p>
             <p id="copiedMessage">Copied!</p>
         </div>
     </div>

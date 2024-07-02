@@ -138,11 +138,7 @@
     <script>
         function copyToClipboard() {
             var address = document.getElementById("contractAddress").innerText;
-            navigator.clipboard.writeText(address).then(function() {
-                alert("Contract address copied to clipboard: " + address);
-            }, function(err) {
-                console.error("Could not copy text: ", err);
-            });
+            navigator.clipboard.writeText(address);
         }
     </script>
 </head>
